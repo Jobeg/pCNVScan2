@@ -198,8 +198,11 @@ def cnv_scan(chromosomes, theorical_ratios, output_name):
                         logger.warning(kmer_sequence+" not in precomputed theorical ratios!")
                         continue
                     else:
-                        #Ratio is the observed under theorical one
-                        ratio = ratio+kmer_coverage/theorical_ratios[kmer_sequence]
+                        if theorical_ratios[kmer_sequence] == 0:
+                            ratio = ratio+kmer_coverage/.0000001
+                        else:
+                            #Ratio is the observed under theorical one
+                            ratio = ratio+kmer_coverage/theorical_ratios[kmer_sequence]
                         gene_size=gene_size+1
             #Compute the mean ratio
             final_ratio=ratio/gene_size
