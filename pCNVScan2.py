@@ -70,7 +70,7 @@ def ArgumentsParser():
                       help = 'Path to a valid .gff reference file. If set you have to give also a fasta file in -f option.')
   parser.add_argument('-f', '--fasta', type = str, required = False,
                       help = 'Path to a valid .fasta file. Should be the same reference as the .gff file.')
-  parser.add_argument('-k', '--kmer', type = str, required = False,
+  parser.add_argument('-k', '--kmer', type = int, required = False,
                       help = 'k-mer size for iterative search. Default: 6.')
   logger_args = parser.add_argument_group('Logger configuration')
   logger_args.add_argument( '--log_level',
